@@ -3,6 +3,7 @@ import { getPageConfig, getMarkdownContent, getBibtexContent } from '@/lib/conte
 import { getConfig } from '@/lib/config';
 import { parseBibTeX } from '@/lib/bibtexParser';
 import PublicationsList from '@/components/publications/PublicationsList';
+import PeopleGraph from '@/components/publications/PeopleGraph';
 import TextPage from '@/components/pages/TextPage';
 import CardPage from '@/components/pages/CardPage';
 import {
@@ -50,6 +51,9 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             {pageConfig.type === 'publication' && (
                 <PublicationPage config={pageConfig as PublicationPageConfig} />
             )}
+            {pageConfig.type === 'people' && (
+                <PeoplePage config={pageConfig as PublicationPageConfig} />
+            )}
             {pageConfig.type === 'text' && (
                 <TextPageWrapper config={pageConfig as TextPageConfig} />
             )}
@@ -58,6 +62,12 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             )}
         </div>
     );
+}
+
+function PeoplePage({ config }: { config: PublicationPageConfig }) {
+    const bibtex = getBibtexContent(config.source);
+    const publications = parseBibTeX(bibtex);
+    return <PeopleGraph config={config} publications={publications} />;
 }
 
 function PublicationPage({ config }: { config: PublicationPageConfig }) {

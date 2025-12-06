@@ -1,0 +1,4 @@
+type = "people"
+title = "People"
+description = "A collection of co-authors"
+source = "publications.bib"

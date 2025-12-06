@@ -21,7 +21,9 @@
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-markdown": "^10.1.0",
+    "react-vis-network-graph": "^3.0.1",
     "smol-toml": "^1.5.2",
+    "vis-network": "^10.0.2",
     "zustand": "^5.0.9"
   },
   "devDependencies": {
