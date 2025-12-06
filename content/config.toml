@@ -18,7 +18,7 @@ location = "City, Country"
 location_url = "https://maps.google.com"
 location_details = [
   "Room 123, Science Building,",
-  "University Avenue, City, Country"
+  "University Avenue, City, Country",
 ]
 google_scholar = "https://scholar.google.com"
 orcid = "https://orcid.org"
@@ -61,6 +61,12 @@ title = "Services"
 type = "page"
 target = "services"
 href = "/services"
+
+[[navigation]]
+title = "People"
+type = "page"
+target = "people"
+href = "/people"
 
 [[navigation]]
 title = "CV"

@@ -4,6 +4,8 @@ This guide is designed for beginners. You don't need complex configurations to d
 
 ## Option 1: GitHub Pages
 
+### Build in Local And Upload to GitHub
+
 1.  **Build your project**
     
     First, ensure you have the correct Node.js version installed.
@@ -46,6 +48,54 @@ This guide is designed for beginners. You don't need complex configurations to d
     Visit `https://username.github.io` to see your website.
 
 ---
+
+### Using GitHub Actions
+
+This guide will walk you through setting up your new website using **GitHub Pages** and **GitHub Actions**.
+
+1. **Fork the Repository**
+
+  * Click the **`Fork`** button located in the upper-right corner of this repository.
+  * When prompted to change the repository name, rename the forked repository to `your-username.github.io`.
+    > *For example, if your GitHub username is `octocat`, the repository name should be `octocat.github.io`.*
+
+2.  **Clone the Repository Locally**
+
+  * Open your command line/terminal.
+  * Clone your new repository to your local computer:
+    ```bash
+    git clone git@github.com:your-username/your-username.github.io.git
+    ```
+  * Next, enter these commands to create and switch to the correct branch:
+    ```bash
+    git branch publish
+    git checkout publish
+    ```
+    > [!NOTE]
+    >
+    > All of your website changes must be made within the **`publish`** branch.
+
+3.  **Set Up GitHub Pages**
+
+  * Go to your new repository on GitHub and click on **Settings**.
+  * In the left sidebar, click on **Pages**.
+  * Under the **"Build and deployment"** section, make sure the **Source** is set to "**GitHub Actions**".
+
+4. **You're All Set**
+
+Once you have made any changes on the local **`publish`** branch, follow the standard Git process to commit and push your changes to the remote repository:
+
+```bash
+git add .
+git commit -am "update message"
+git push --set-upstream origin publish
+```
+
+After you push, **GitHub Actions** will automatically start the build process and deploy your files to **GitHub Pages**.
+
+You can now visit your new website at `https://your-username.github.io` .
+
+----
 
 ## Option 2: Cloudflare Pages
 

@@ -16,6 +16,7 @@ export interface Publication {
   abstract?: string;
   journal?: string;
   conference?: string;
+  shortName?: string;
   volume?: string;
   issue?: string;
   pages?: string;
@@ -26,6 +27,7 @@ export interface Publication {
   arxivId?: string;
   pmid?: string;
   url?: string;
+  slides?: string;
   code?: string;
   pdfUrl?: string;
   tags: string[];
