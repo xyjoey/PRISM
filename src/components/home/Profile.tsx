@@ -136,7 +136,7 @@ export default function Profile({ author, social, features, researchInterests }:
             </div>
 
             {/* Contact Links */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 relative px-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6 relative px-2">
                 {socialLinks.map((link, idx) => {
                     const IconComponent = link.icon;
                     if (link.isLocation) {
@@ -153,7 +153,7 @@ export default function Profile({ author, social, features, researchInterests }:
                                         setShowAddress(!isAddressPinned);
                                         setLastClickedTooltip('address');
                                     }}
-                                    className={`p-2 sm:p-2 transition-colors duration-200 ${isAddressPinned
+                                    className={`inline-flex items-center justify-center p-2 sm:p-2 transition-colors duration-200 ${isAddressPinned
                                         ? 'text-accent'
                                         : 'text-neutral-600 dark:text-neutral-400 hover:text-accent'
                                         }`}
@@ -230,7 +230,7 @@ export default function Profile({ author, social, features, researchInterests }:
                                         setShowEmail(!isEmailPinned);
                                         setLastClickedTooltip('email');
                                     }}
-                                    className={`p-2 sm:p-2 transition-colors duration-200 ${isEmailPinned
+                                    className={`inline-flex items-center justify-center p-2 sm:p-2 transition-colors duration-200 ${isEmailPinned
                                         ? 'text-accent'
                                         : 'text-neutral-600 dark:text-neutral-400 hover:text-accent'
                                         }`}
@@ -297,7 +297,7 @@ export default function Profile({ author, social, features, researchInterests }:
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 onFocus={() => setHoveredIndex(idx)}
                                 onBlur={() => setHoveredIndex(null)}
-                                className="p-2 sm:p-2 text-neutral-600 dark:text-neutral-400 hover:text-accent transition-colors duration-200"
+                                className="inline-flex items-center justify-center p-2 sm:p-2 text-neutral-600 dark:text-neutral-400 hover:text-accent transition-colors duration-200"
                                 aria-label={link.name}
                             >
                                 <IconComponent className="h-5 w-5" />
