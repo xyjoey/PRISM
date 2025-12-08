@@ -47,6 +47,79 @@ This guide is designed for beginners. You don't need complex configurations to d
 6.  **Done!**
     Visit `https://username.github.io` to see your website.
 
+### (Optional) Deploy Automatically with GitHub Actions
+
+PRISM also supports **automatic deployment to GitHub Pages** using GitHub Actions.  
+This method is recommended if you want your site to update automatically whenever you push changes.
+
+#### How to enable
+
+This repository includes an optional workflow located at:
+
+```
+.github/workflows/deploy.yml
+```
+
+For template users, GitHub disables workflows by default.  
+To enable deployment:
+
+1. Go to **Settings > Pages**, and under **Build and deployment > Source**, choose **GitHub Actions**.
+2. Go to **Actions** Tab, and select **"Deploy PRISM to GitHub Pages"**.
+3. Click **"Enable workflow"**.
+4. Run manually using **Run workflow**.
+5. (Optional) To enable automatic deployment on push:  
+   Edit `.github/workflows/deploy.yml` and uncomment:
+
+   ```yaml
+   on:
+     push:
+       branches:
+         - main
+         - ci
+   ```
+
+Once enabled, GitHub Actions will:
+
+- Build your site (`npm install && npm run build`)
+- Export static files into `out/`
+- Deploy automatically to GitHub Pages
+
+Your site will be available at `https://<username>.github.io`
+
+If you are using a repository other than `username.github.io`, your site will be at `https://<username>.github.io/<repository>/`.
+
+In this case, make sure to set the `basePath` and `assetPrefix` in `next.config.ts` accordingly to add path prefixes to your assets:
+
+```
+// next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
+
+  // Add these two lines
+  basePath: "/my-repo",
+  assetPrefix: "/my-repo",
+
+  images: {
+    unoptimized: true,
+  },
+  /* config options here */
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.bib$/,
+      type: 'asset/source',
+    });
+    return config;
+  },
+};
+
+export default nextConfig;
+```
+
+
+
 ---
 
 ### Using GitHub Actions

@@ -52,6 +52,77 @@
 6.  **大功告成！**
     访问 `https://你的用户名.github.io`，欣赏你的新网站吧！
 
+### (可选) 使用 GitHub Actions 自动部署
+
+PRISM 也支持使用 GitHub Actions **自动部署到 GitHub Pages**。
+如果您希望每次推送更改时自动更新站点，推荐使用此方法。
+
+#### 如何启用
+
+本仓库包含一个可选的工作流文件，位于：
+
+```
+.github/workflows/deploy.yml
+```
+
+对于使用模板的用户，GitHub 默认会禁用工作流。
+要启用部署：
+
+1. 转到 **Settings (设置) > Pages**，在 **Build and deployment (构建和部署) > Source (来源)** 下，选择 **GitHub Actions**。
+2. 转到 **Actions** 标签页，选择 **"Deploy PRISM to GitHub Pages"**。
+3. 点击 **"Enable workflow" (启用工作流)**。
+4. 使用 **Run workflow (运行工作流)** 手动运行。
+5. (可选) 要启用推送时自动部署：
+   编辑 `.github/workflows/deploy.yml` 并取消注释：
+
+   ```yaml
+   on:
+     push:
+       branches:
+         - main
+         - ci
+   ```
+
+启用后，GitHub Actions 将会：
+
+- 构建您的站点 (`npm install && npm run build`)
+- 将静态文件导出到 `out/`
+- 自动部署到 GitHub Pages
+
+您的站点将可以通过 `https://<username>.github.io` 访问。
+
+如果您使用的仓库名称不是 `username.github.io`，您的站点将位于 `https://<username>.github.io/<repository>/`。
+
+在这种情况下，请确保在 `next.config.ts` 中相应地设置 `basePath` 和 `assetPrefix`，以便为您的资源添加路径前缀：
+
+```typescript
+// next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
+
+  // 添加这两行
+  basePath: "/my-repo",
+  assetPrefix: "/my-repo",
+
+  images: {
+    unoptimized: true,
+  },
+  /* config options here */
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.bib$/,
+      type: 'asset/source',
+    });
+    return config;
+  },
+};
+
+export default nextConfig;
+```
+
 ---
 
 ### GitHub Actions 构建
