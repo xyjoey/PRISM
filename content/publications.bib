@@ -13,8 +13,7 @@
   langid = {english},
   abstract = {The precise time-evolution of quantum systems is a cornerstone of computational physics. This paper investigates the numerical stability of high-order Runge-Kutta (RK) methods when applied to the time-dependent Schrödinger equation. We derive rigorous stability boundaries for symplectic and non-symplectic RK integrators and demonstrate that specific implicit schemes preserve unitarity over extended simulation times. By analyzing the spectral properties of the Hamiltonian operator, we establish a relationship between the Courant-Friedrichs-Lewy (CFL) condition and the imaginary eigenvalues characteristic of quantum propagators. Our findings are validated through simulations of wave packet scattering and harmonic oscillator dynamics, showing that our proposed optimized RK coefficients significantly reduce phase error accumulation compared to standard integrators.},
   description={A rigorous analysis of numerical stability boundaries for high-order Runge-Kutta integrators in the context of time-dependent quantum mechanics.},
-  keywords={Computational Physics, Quantum Dynamics, Numerical Analysis, Runge-Kutta Methods},
-  pdfUrl={example.pdf}
+  keywords={Computational Physics, Quantum Dynamics, Numerical Analysis, Runge-Kutta Methods}
 }
 
 @inproceedings{smith2024constructive,
@@ -31,8 +30,6 @@
   isbn = {978-3-03719-202-8},
   abstract = {We present a novel constructive proof for the Generalized Riemann Hypothesis (GRH) specifically within the context of function fields over finite constants. Unlike previous existential approaches, our method utilizes the spectral interpretation of the Frobenius automorphism acting on étale cohomology groups. We explicitly construct the L-functions associated with algebraic curves and demonstrate that their zeros lie strictly on the critical line Re(s) = 1/2. This work bridges the gap between classical analytic number theory and geometric invariant theory, offering new insights into the distribution of prime polynomials. The constructive nature of our proof allows for the algorithmic verification of L-function properties for curves of genus g > 100, which was previously computationally intractable.},
   preview={example.png},
-  slides={example.pdf},
-  shortName={ICM},
   description={A constructive proof demonstrating the validity of the Generalized Riemann Hypothesis for function fields using spectral interpretation of the Frobenius automorphism.},
   keywords={Number Theory, Riemann Hypothesis, Function Fields, Algebraic Geometry}
 }
@@ -72,7 +69,10 @@
   abstract={We establish the existence and uniqueness of strong solutions for a class of non-linear Stochastic Partial Differential Equations (SPDEs) driven by multiplicative Lévy noise. The equations under consideration model turbulent fluid flow and heat transport in random media. By employing a Galerkin approximation scheme combined with a compact embedding theorem, we prove the convergence of the approximate solutions in appropriate Hilbert spaces. Furthermore, we derive a priori estimates that ensure the global regularity of the solution almost surely. A key contribution of this work is the treatment of non-Lipschitz coefficients using a stochastic Gronwall inequality, extending the applicability of the theory to more singular physical models. We also discuss the ergodic properties of the invariant measures associated with the SPDEs.},
   preview={example.png},
   description={Mathematical proof of existence and uniqueness for non-linear SPDEs with multiplicative Lévy noise, extending theory to non-Lipschitz coefficients.},
-  keywords={Stochastic Analysis, SPDE, Existence Theorems, Probability Theory}
+  keywords={Stochastic Analysis, SPDE, Existence Theorems, Probability Theory},
+  pdfUrl={example.pdf},
+  slides={example.pdf},
+  shortName={AP},
 }
 
 @article{liu2025algorithmic,
@@ -89,4 +89,19 @@
   doi = {10.1103/PhysRevE.112.092101},
   selected = {true},
   code = {https://github.com/xyjoey/Tensor_Network_Complexity_MBL},
+}
+
+@inproceedings{liu2025under,
+  title = {Parallel SAT Solving via Example},
+  author = {Jiale Liu},
+  conference={International Conference on Computer Aided Verification},
+  pages={110--132},
+  year={2026},
+  description={Complexity analysis of tensor network contractions in MBL systems, identifying a complexity phase transition and proposing an adaptive algorithm.},
+  keywords={SAT, Parallel Computing},
+  publisher={Springer},
+  selected = {true},
+  status={submitted},
+  shortName={CAV},
+  ccfFlag={CCF-A}
 }

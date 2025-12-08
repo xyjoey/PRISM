@@ -1,5 +1,6 @@
 export interface Author {
   name: string;
+  avatar?: string;
   isMainAuthor?: boolean;
   affiliation?: string;
   email?: string;
@@ -7,6 +8,9 @@ export interface Author {
   isHighlighted?: boolean;
   isCorresponding?: boolean;
   isCoAuthor?: boolean;
+  researchInterest?: string[];
+  bio?: string;
+  homepage?: string;
 }
 
 export interface Publication {

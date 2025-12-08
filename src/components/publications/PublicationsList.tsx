@@ -218,7 +218,14 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
                                                 <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
-                                                    {author.name}
+                                                    {author.homepage ? (
+                                                        <a
+                                                            href={author.homepage}
+                                                            target={author.isHighlighted ? "_self" : "_blank"}
+                                                        >
+                                                            {author.name}
+                                                        </a>
+                                                    ) : author.name}
                                                 </span>
                                                 {author.isCorresponding && (
                                                     <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
@@ -227,9 +234,17 @@ export default function PublicationsList({ config, publications, embedded = fals
                                             </span>
                                         ))}
                                     </p>
-                                    <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {pub.journal || pub.conference} {pub.year}
-                                    </p>
+
+                                    {pub.status == 'published' ? (
+                                        <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
+                                            {pub.journal || pub.conference} {pub.year}
+                                        </p>
+                                    ) :
+                                        (<p className="text-sm font-medium italic text-neutral-800 dark:text-neutral-600 mb-3">
+                                            * {pub.status.toLocaleUpperCase().replace("-", " ")}
+                                        </p>)
+                                    }
+
 
                                     {pub.description && (
                                         <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-4 line-clamp-3">
