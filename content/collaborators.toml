@@ -1,0 +1,13 @@
+[[people]]
+name = "Ada Lovelace"
+avatar = ""
+research_interests = []
+bio = ""
+homepage = "https://en.wikipedia.org/wiki/Ada_Lovelace"
+
+[[people]]
+name = "Jane Doe"
+avatar = ""
+research_interests = []
+bio = ""
+homepage = "https://en.wikipedia.org/wiki/John_Doe"

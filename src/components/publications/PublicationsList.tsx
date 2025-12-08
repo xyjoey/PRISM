@@ -218,7 +218,14 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
                                                 <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
-                                                    {author.name}
+                                                    {author.homepage ? (
+                                                        <a
+                                                            href={author.homepage}
+                                                            target={author.isHighlighted ? "_self" : "_blank"}
+                                                        >
+                                                            {author.name}
+                                                        </a>
+                                                    ) : author.name}
                                                 </span>
                                                 {author.isCorresponding && (
                                                     <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
@@ -227,9 +234,17 @@ export default function PublicationsList({ config, publications, embedded = fals
                                             </span>
                                         ))}
                                     </p>
-                                    <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {pub.journal || pub.conference} {pub.year}
-                                    </p>
+
+                                    {pub.status == 'published' ? (
+                                        <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
+                                            {pub.journal || pub.conference} {pub.year}
+                                        </p>
+                                    ) :
+                                        (<p className="text-sm font-medium italic text-neutral-800 dark:text-neutral-600 mb-3">
+                                            * {pub.status.toLocaleUpperCase().replace("-", " ")}
+                                        </p>)
+                                    }
+
 
                                     {pub.description && (
                                         <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-4 line-clamp-3">
@@ -256,6 +271,35 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
                                             >
                                                 Code
+                                            </a>
+                                        )}
+                                        {pub.slides && (
+                                            <a
+                                                href={`/slides/${pub.slides}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                            >
+                                                Slides@{pub.shortName ? pub.shortName : pub.year}
+                                            </a>
+                                        )}
+                                        {pub.pdfUrl ? (
+                                            <a
+                                                href={`/pdf/${pub.pdfUrl}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                            >
+                                                Paper
+                                            </a>
+                                        ) : pub.url && (
+                                            <a
+                                                href={pub.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                            >
+                                                Paper
                                             </a>
                                         )}
                                         {pub.abstract && (
