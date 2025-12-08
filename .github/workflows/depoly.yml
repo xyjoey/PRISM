@@ -3,7 +3,7 @@ name: Deploy PRISM on GitHub Pages
 on:
   push:
     branches:
-      - main
+      - publish
 
 permissions:
   contents: read
