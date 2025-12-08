@@ -4,6 +4,10 @@
 
 ## 方案一：GitHub Pages
 
+如果你没有设置 GitHub Pages 的先验知识，那么参考下面第一个方法进行设置
+
+### 本地构建并上传
+
 1.  **构建你的项目**
 
     首先，请确保你安装了正确的 Node.js 版本。
@@ -47,6 +51,41 @@
 
 6.  **大功告成！**
     访问 `https://你的用户名.github.io`，欣赏你的新网站吧！
+
+---
+
+### GitHub Actions 构建
+
+1. **Fork 本仓库**
+
+    点击本仓库右上角的 `Fork`，将 `Fork` 的仓库名称更换为 `你的用户名.github.io`
+
+2. **克隆仓库**
+
+    在命令行输入命令 `git clone git@github.com:你的用户名/你的用户名.github.io.git` 将你的仓库克隆到本地
+    
+    接着，输入 `git branch publish && git checkout publish` 切换到 `publish` 分支
+
+    你的所有更改都需要在 `publish` 分支下做
+
+3. **设置 Github Pages**
+
+    *   进入仓库的 **Settings** (设置)。
+    *   在左侧栏找到 **Pages**。
+    *   在 **Build and deployment** 下，确保来源选择的是 "Github Actions"。
+
+4. **大功告成**
+
+    当你在本地的 `publish` 分支下做完任何修改后，按照提交远程仓库的方式：
+
+    ```bash
+    git add .
+    git commit -am "update message"
+    git push --set-upstream origin publish
+    ```
+    进行提交，随后 Github Actions 会自动触发构建，并部署你的 GitHub Pages
+    
+    访问 `https://你的用户名.github.io`，欣赏你的新网站吧！ 
 
 ---
 
