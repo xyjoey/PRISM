@@ -1,0 +1,9 @@
+type = "card"
+title = "Projects"
+description = "Projects."
+
+[[items]]
+title = "website"
+subtitle = "s_tide"
+date = "2025"
+content = "A website for s_tide toolbox."
