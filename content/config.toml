@@ -51,6 +51,12 @@ href = "/"
 # href = "/teaching"
 
 [[navigation]]
+title = "Tech"
+type = "page"
+target = "tech"
+href = "/tech"
+
+[[navigation]]
 title = "Projects"
 type = "page"
 target = "projects"
