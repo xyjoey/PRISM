@@ -3,9 +3,11 @@ title = "About"
 
 [profile]
 research_interests = [
-  "Computational Physics",
-  "Mathematical Principles",
-  "Proof of Theorems"
+  "Physical Oceanography",
+  "Ocean Modeling",
+  "Marine Heatwaves",
+  "Air-sea Interaction",
+  "Artificial Intelligence",
 ]
 
 [[sections]]

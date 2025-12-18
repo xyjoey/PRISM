@@ -1,29 +1,29 @@
 [site]
-title = "Jiale Liu"
-description = "PhD student at the University of Example."
+title = "Jiashun Wang"
+description = "Graduate at the Harbin Engineering University."
 favicon = "/favicon.svg"
-last_updated = "November 18, 2025"
+last_updated = "Dec. 18, 2025"
 
 [author]
-name = "Jiale Liu"
-title = "PhD Student"
-institution = "University of Example"
+name = "Jiashun Wang"
+title = "Graduate"
+institution = "Harbin Engineering University"
 avatar = "/bio.jpg"
 
 [social]
 # Contact information (leave blank or delete to hide)
 
-email = "john.doe@example.com"
-location = "City, Country"
+email = "wjs@ieee.org"
+location = "Qingdao, Shandong, China"
 location_url = "https://maps.google.com"
 location_details = [
-  "Room 123, Science Building,",
-  "University Avenue, City, Country"
+  "6 Xianxialing Road, Laoshan District,",
+  "First Institute of Oceanography, Qingdao, China"
 ]
-google_scholar = "https://scholar.google.com"
-orcid = "https://orcid.org"
-github = "https://github.com"
-linkedin = "https://linkedin.com"
+google_scholar = "https://scholar.google.com/citations?user=wWfLsaIAAAAJ"
+orcid = "https://orcid.org/0000-0002-6442-9258"
+github = "https://github.com/jiashun-wang"
+linkedin = "https://www.linkedin.com/in/wangjiashun/"
 
 [features]
 # Show a like button on the about page
