@@ -6,7 +6,7 @@ last_updated = "Dec. 18, 2025"
 
 [author]
 name = "Jiashun Wang"
-title = "Graduate"
+title = "Master of Science (M.S.)"
 institution = "Harbin Engineering University"
 avatar = "/bio.jpg"
 
@@ -79,3 +79,9 @@ title = "CV"
 type = "page"
 target = "cv"
 href = "/cv"
+
+# [[navigation]]
+# title = "Blog"
+# type = ""
+# target = "blog.jia-shun.wang"
+# href = "/blog"

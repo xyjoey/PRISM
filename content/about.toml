@@ -7,7 +7,7 @@ research_interests = [
   "Ocean Modeling",
   "Marine Heatwaves",
   "Air-sea Interaction",
-  "Artificial Intelligence",
+  # "Artificial Intelligence",
 ]
 
 [[sections]]
