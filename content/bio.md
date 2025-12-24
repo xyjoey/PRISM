@@ -1,5 +1,5 @@
-I am a Graduate at the School of Science, graduated from Harbin Engineering University, supervised by [Prof. Shujiang Li](https://www.researchgate.net/profile/Shujiang-Li) and [Prof. Xunwei Nie](https://www.researchgate.net/profile/Nie-Xunwei).
-
-Prior to this, I obtained a BSc degree with First Class Honours in Natural Science from the University of Example.
-
-My current research focuses on investigating the mathematical principles of natural philosophy.
+Master’s graduate in marine science with strong research experience in data analysis, numerical modeling, and
+programming. Skilled in Python and MATLAB, and involved in projects on marine heatwaves and wave forecasting.
+Experienced in academic resource management and international curriculum integration. Awarded multiple university
+scholarships, with solid teamwork and project coordination skills. Eager to pursue further research in physical
+oceanography and contribute to academic innovation at the PhD level.
