@@ -69,16 +69,22 @@ target = "awards"
 href = "/awards"
 
 [[navigation]]
+title = "CV"
+type = "page"
+target = "cv"
+href = "/cv"
+
+[[navigation]]
 title = "Services"
 type = "page"
 target = "services"
 href = "/services"
 
 [[navigation]]
-title = "CV"
+title = "Certifications"
 type = "page"
-target = "cv"
-href = "/cv"
+target = "certifications"
+href = "/certifications"
 
 # [[navigation]]
 # title = "Blog"
