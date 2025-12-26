@@ -9,7 +9,9 @@ import {
     CalendarIcon,
     BookOpenIcon,
     ClipboardDocumentIcon,
-    DocumentTextIcon
+    DocumentTextIcon,
+    StarIcon,
+    TagIcon  
 } from '@heroicons/react/24/outline';
 import { Publication } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
@@ -73,7 +75,6 @@ export default function PublicationsList({ config, publications, embedded = fals
 
             {/* Search and Filter Controls */}
             <div className="mb-8 space-y-4">
-                {/* ... (keep existing controls) ... */}
                 <div className="flex flex-col sm:flex-row gap-4">
                     <div className="relative flex-grow">
                         <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
@@ -211,13 +212,33 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </div>
                                 )}
                                 <div className="flex-grow">
-                                    <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
+                                    {/* Title and reward (desktop: same row; mobile: reward under title, left-aligned) */}
+                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                    <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary leading-tight`}>
                                         {pub.title}
                                     </h3>
+
+                                    {pub.reward && (
+                                        <div className="flex-shrink-0 mt-2 sm:mt-0 sm:ml-4 self-start sm:self-auto flex flex-wrap gap-2 sm:flex-col sm:items-end sm:gap-0.5">
+                                            {pub.reward
+                                                .split(';')
+                                                .map((s) => s.trim())
+                                                .filter(Boolean)
+                                                .map((rewardPart, idx) => (
+                                                    <span
+                                                        key={`reward-${idx}`}
+                                                        className="inline-block px-2 py-1 rounded border-2 border-accent bg-accent/10 text-accent text-xs font-semibold"
+                                                    >
+                                                        {rewardPart}
+                                                    </span>
+                                                ))}
+                                        </div>
+                                    )}
+                                    </div>
                                     <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2`}>
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
-                                                <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
+                                                <span className={author.isHighlighted ? 'font-semibold text-accent' : ''}>
                                                     {author.name}
                                                 </span>
                                                 {author.isCorresponding && (
@@ -237,6 +258,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         </p>
                                     )}
 
+                                    {/* DOI, Code, Abstract, BibTeX, Abbreviation (abbr) in the same row */}
                                     <div className="flex flex-wrap gap-2 mt-auto">
                                         {pub.doi && (
                                             <a
@@ -286,6 +308,34 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 BibTeX
                                             </button>
                                         )}
+                                        {/* Right-aligned metadata: Abbreviation (abbr) + Rank */}
+                                        {(pub.abbr || pub.rank) && (
+                                            <div className="flex flex-wrap items-center gap-2 basis-full order-first justify-start mb-2 sm:mb-0 sm:basis-auto sm:order-last sm:justify-end sm:ml-auto">
+                                                {/* Abbreviation (abbr) - Split by semicolon */}
+                                                {pub.abbr &&
+                                                    pub.abbr.split(';').map((abbrPart, index) => (
+                                                        <span
+                                                            key={`abbr-${index}`}
+                                                            className="inline-flex items-center px-2 py-1 text-xs font-medium text-neutral-800 dark:text-neutral-600 border border-neutral-300 dark:border-neutral-600 rounded-md"
+                                                        >
+                                                            <TagIcon className="h-3 w-3 mr-1" />
+                                                            {abbrPart}
+                                                        </span>
+                                                    ))}
+
+                                                {/* Rank - Star Icon */}
+                                                {pub.rank &&
+                                                    pub.rank.split(';').map((rankPart, index) => (
+                                                        <span
+                                                            key={`rank-${index}`}
+                                                            className="inline-flex items-center px-2 py-1 text-xs font-medium text-neutral-800 dark:text-neutral-600 border border-neutral-300 dark:border-neutral-600 rounded-md"
+                                                        >
+                                                            <StarIcon className="h-3 w-3 mr-1" />
+                                                            {rankPart}
+                                                        </span>
+                                                    ))}
+                                            </div>
+                                        )}
                                     </div>
 
                                     <AnimatePresence>
@@ -319,7 +369,6 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                     <button
                                                         onClick={() => {
                                                             navigator.clipboard.writeText(pub.bibtex || '');
-                                                            // Optional: Show copied feedback
                                                         }}
                                                         className="absolute top-2 right-2 p-1.5 rounded-md bg-white dark:bg-neutral-700 text-neutral-500 hover:text-accent shadow-sm border border-neutral-200 dark:border-neutral-600 transition-colors"
                                                         title="Copy to clipboard"

@@ -30,6 +30,9 @@ export interface Publication {
   pdfUrl?: string;
   tags: string[];
   keywords?: string[];
+  reward?: string;
+  abbr?: string;
+  rank?: string;
   type: PublicationType;
   status: PublicationStatus;
   citations?: number;
