@@ -9,6 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { SiteConfig } from '@/lib/config';
+import Image from 'next/image';  // 引入 Image 组件
 
 interface NavigationProps {
   items: SiteConfig['navigation'];
@@ -44,12 +45,6 @@ export default function Navigation({ items, siteTitle, enableOnePageMode }: Navi
           if (entry.isIntersecting) {
             // Update active hash based on intersecting section
             const id = entry.target.id;
-            // Only update if we are not currently scrolling to a target (optional refinement, 
-            // but for now simple intersection is enough, we might want to debounce or check intersection ratio)
-            // We use history.replaceState to update URL without jumping or window.location.hash which might jump
-            // But for the nav highlighting, we just need to update local state if we want it to be responsive
-            // However, the requirement says "nav bar did not change". 
-            // Let's update the activeHash state.
             setActiveHash(id === 'about' ? '' : `#${id}`);
           }
         });
@@ -103,9 +98,30 @@ export default function Navigation({ items, siteTitle, enableOnePageMode }: Navi
                 >
                   <Link
                     href="/"
-                    className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
+                    className="flex items-center space-x-3 text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
                   >
-                    {siteTitle}
+                    {/* Logo Image */}
+                    <div className="bg-transparent p-1 rounded-md">
+                      {/* Light mode logo */}
+                      <Image
+                        src="/zzu.svg"
+                        alt="Logo"
+                        width={120}
+                        height={35}
+                        className="object-contain block dark:hidden"
+                      />
+
+                      {/* Dark mode logo */}
+                      <Image
+                        src="/zzu_white.svg"
+                        alt="Logo (dark)"
+                        width={120}
+                        height={35}
+                        className="object-contain hidden dark:block"
+                      />
+                    </div>
+                    <span className="text-neutral-300 dark:text-neutral-600">|</span>
+                    <span>{siteTitle}</span>
                   </Link>
                 </motion.div>
 
