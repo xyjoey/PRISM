@@ -107,7 +107,13 @@ export default function RootLayout({
           <main className="min-h-screen pt-16 lg:pt-20">
             {children}
           </main>
-          <Footer lastUpdated={config.site.last_updated} />
+          <Footer
+            lastUpdated={new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          />
         </ThemeProvider>
       </body>
     </html>
