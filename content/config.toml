@@ -38,6 +38,12 @@ type = "page"
 target = "about"
 href = "/"
 
+[[navigation]]
+title = "CV"
+type = "page"
+target = "cv"
+href = "/cv"
+
 # [[navigation]]
 # title = "Publications"
 # type = "page"
@@ -50,11 +56,11 @@ href = "/"
 # target = "teaching"
 # href = "/teaching"
 
-[[navigation]]
-title = "Tech"
-type = "page"
-target = "tech"
-href = "/tech"
+# [[navigation]]
+# title = "Tech"
+# type = "page"
+# target = "tech"
+# href = "/tech"
 
 [[navigation]]
 title = "Projects"
@@ -62,29 +68,25 @@ type = "page"
 target = "projects"
 href = "/projects"
 
-[[navigation]]
-title = "Awards"
-type = "page"
-target = "awards"
-href = "/awards"
+# [[navigation]]
+# title = "Awards"
+# type = "page"
+# target = "awards"
+# href = "/awards"
 
-[[navigation]]
-title = "CV"
-type = "page"
-target = "cv"
-href = "/cv"
 
-[[navigation]]
-title = "Services"
-type = "page"
-target = "services"
-href = "/services"
 
-[[navigation]]
-title = "Certifications"
-type = "page"
-target = "certifications"
-href = "/certifications"
+# [[navigation]]
+# title = "Services"
+# type = "page"
+# target = "services"
+# href = "/services"
+
+# [[navigation]]
+# title = "Certifications"
+# type = "page"
+# target = "certifications"
+# href = "/certifications"
 
 # [[navigation]]
 # title = "Blog"

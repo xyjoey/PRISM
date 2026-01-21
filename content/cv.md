@@ -1,5 +1,7 @@
 [Download CV (June 2025)](/resume_jswang.pdf)
 
+下载中文简历（截至2025年9月）
+
 ## Education
 
 **Harbin Engineering University**, MSc in Marine Science, *Sept 2021 – June 2024 (Grad. June 2024)*
@@ -36,7 +38,3 @@ Zhanjiang, Guangdong, China
 - **Programming:** Python, MATLAB, LaTeX
 - **Data Analysis:** Pandas, NumPy, SciPy
 - **Languages:** English , Chinese (Native)
-
-## Awards & Honors
-
-- **First Prize in Example Competition** - Committee of Example (*2024*)
