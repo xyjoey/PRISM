@@ -101,6 +101,29 @@ This generates a static `out/` directory that can be hosted anywhere.
 
 👉 **[Read the full Deployment Guide](docs/deployment.md)** for instructions on deploying to **GitHub Pages** and **Cloudflare Pages**.
 
+### Custom Domain Setup
+
+To use a custom domain (e.g. from Namecheap) with GitHub Pages:
+
+1.  **Add a CNAME file** in `public/CNAME` with your domain:
+    ```
+    yourdomain.com
+    ```
+
+2.  **Configure DNS** at your domain registrar (e.g. Namecheap > Advanced DNS):
+
+    | Type | Host | Value |
+    |------|------|-------|
+    | A | `@` | `185.199.108.153` |
+    | A | `@` | `185.199.109.153` |
+    | A | `@` | `185.199.110.153` |
+    | A | `@` | `185.199.111.153` |
+    | CNAME | `www` | `<your-username>.github.io` |
+
+3.  **Enable GitHub Pages**: Go to your repo **Settings > Pages**, set Source to **GitHub Actions**, then enter your custom domain and enable **Enforce HTTPS**.
+
+4.  **Deploy** by triggering the GitHub Actions workflow. DNS propagation may take a few minutes to 48 hours.
+
 ## 📂 Project Structure
 
 ```
