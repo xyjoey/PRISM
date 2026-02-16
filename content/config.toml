@@ -1,33 +1,26 @@
 [site]
-title = "Jiale Liu"
-description = "PhD student at the University of Example."
+title = "William Berrios"
+description = "Research Engineer at Contextual AI."
 favicon = "/favicon.svg"
 last_updated = "November 18, 2025"
 
 [author]
-name = "Jiale Liu"
-title = "PhD Student"
-institution = "University of Example"
+name = "William Berrios"
+title = "Research Engineer"
+institution = "Contextual AI"
 avatar = "/bio.jpg"
 
 [social]
 # Contact information (leave blank or delete to hide)
 
-email = "john.doe@example.com"
-location = "City, Country"
-location_url = "https://maps.google.com"
-location_details = [
-  "Room 123, Science Building,",
-  "University Avenue, City, Country"
-]
-google_scholar = "https://scholar.google.com"
-orcid = "https://orcid.org"
-github = "https://github.com"
-linkedin = "https://linkedin.com"
+email = "wberriosr@uni.pe"
+google_scholar = "https://scholar.google.com/citations?user=EQhSvuAAAAAJ&hl=es"
+github = "https://github.com/williamberrios"
+linkedin = "https://www.linkedin.com/in/williamberrios96/"
 
 [features]
 # Show a like button on the about page
-enable_likes = true
+enable_likes = false
 
 # Display all subpages on a single page
 enable_one_page_mode = false
