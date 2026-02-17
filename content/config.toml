@@ -46,6 +46,12 @@ target = "awards"
 href = "/awards"
 
 [[navigation]]
+title = "Media"
+type = "page"
+target = "media"
+href = "/media"
+
+[[navigation]]
 title = "CV"
 type = "page"
 target = "cv"

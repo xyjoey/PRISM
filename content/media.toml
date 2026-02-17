@@ -1,0 +1,30 @@
+type = "card"
+title = "Media Coverage"
+description = "Press and media features."
+
+[[items]]
+title = "Peruvian engineer from UNI revolutionizes Silicon Valley with artificial intelligence models in the United States"
+subtitle = "LaRepublica Newspaper - Peru"
+date = "2025"
+content = "Coverage of William Berrios' journey from Peru's National University of Engineering to Silicon Valley, training AI models at Contextual AI and advocating for AI in education."
+link = "https://larepublica.pe/historias-estados-unidos/2025/07/27/peruano-egresado-de-la-uni-triunfa-en-silicon-valley-entrenando-modelos-de-inteligencia-artificial-es-necesario-promover-la-ia-en-la-educacion-lrtmus-ntpe-2364417"
+
+[[items]]
+title = "Contextual AI's new AI model crushes GPT-4o in accuracy — here's why it matters"
+subtitle = "VentureBeat"
+date = "2025"
+content = "VentureBeat coverage of Contextual AI's language model achieving state-of-the-art factuality, outperforming GPT-4o in accuracy benchmarks."
+link = "https://venturebeat.com/ai/contextual-ais-new-ai-model-crushes-gpt-4o-in-accuracy-heres-why-it-matters"
+
+[[items]]
+title = "Making LLMs Multi-Modal without Fine-Tuning"
+subtitle = "Chai Time Data Science YouTube channel"
+date = "2023"
+content = "Interview discussing the LENS framework for enabling language models to process visual information without requiring fine-tuning."
+
+[[items]]
+title = "Promoting national talent: The case of the students from the National University of Engineering, winners of the Data Science Challenge"
+subtitle = "Ministry of Education of Peru"
+date = "2021"
+content = "Recognition by Peru's Ministry of Education of UNI students who won the first Data Science Challenge, competing among 100 participants from Chile, Colombia, Mexico, and Peru."
+link = "https://www.minedu.gob.pe/conectados/pdf/cursos/webinars/2021/20-de-agosto-2021-promoviendo-el-talento-nacional.pdf"
