@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { MapPinIcon as MapPinSolidIcon, EnvelopeIcon as EnvelopeSolidIcon } from '@heroicons/react/24/solid';
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
-import { Github, Linkedin, Pin } from 'lucide-react';
+import { Github, Linkedin, Pin, FileText } from 'lucide-react';
 import { SiteConfig } from '@/lib/config';
 
 // Custom ORCID icon component
@@ -84,6 +84,11 @@ export default function Profile({ author, social, features, researchInterests }:
             name: 'Google Scholar',
             href: social.google_scholar,
             icon: AcademicCapIcon,
+        }] : []),
+        ...(social.cv ? [{
+            name: 'CV',
+            href: social.cv,
+            icon: FileText,
         }] : []),
         ...(social.orcid ? [{
             name: 'ORCID',

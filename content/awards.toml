@@ -3,25 +3,66 @@ title = "Awards"
 description = "Honors and awards I have received."
 
 [[items]]
-title = "Example Award"
-subtitle = "Organization"
+title = "1st Place Facts Grounding Leaderboard"
 date = "2025"
-content = "Description of the award."
+content = "Rank 1/34 among submissions from Big AI labs. Organized by GoogleDeepMind & Kaggle."
+link = "https://www.kaggle.com/competitions/facts-grounding/leaderboard"
 
 [[items]]
-title = "Example Award"
-subtitle = "Organization"
-date = "2024"
-content = "Description of the award."
+title = "2nd Place RewardBench"
+date = "2025"
+content = "Rank 2/70 among submissions from Big AI labs. Organized by AllenAI Institute."
+link = "https://huggingface.co/spaces/allenai/reward-bench"
 
 [[items]]
-title = "Example Award"
-subtitle = "Organization"
+title = "1st Place BBVA Data Challenge"
 date = "2023"
-content = "Description of the award."
+content = "Rank 1/500. Organized by BBVA. Awarded $3000."
 
 [[items]]
-title = "Example Award"
-subtitle = "Organization"
+title = "2nd Place at Brain-Score Competition"
 date = "2022"
-content = "Description of the award."
+content = "Rank 2/21. Organized by MIT Intelligence Quest and MIT IBM Watson AI Lab. Awarded $1250."
+link = "https://www.brain-score.org/"
+
+[[items]]
+title = "2nd Place at International Interbank Datathon"
+date = "2021"
+content = "Rank 2/232. Organized by Interbank - Peru. Awarded $6000."
+
+[[items]]
+title = "1st Place at BNP Machine Learning Competition"
+date = "2021"
+content = "Rank 1/100. Organized by BNP Paribas Cardif and Domino DataLab."
+
+[[items]]
+title = "1st Place at International BCI Machine Learning Competition"
+date = "2021"
+content = "Rank 1/400 (15+ countries). Organized by BCI Bank - Chile. Awarded $3600."
+
+[[items]]
+title = "Silver Medal at Ventilator Pressure Prediction"
+date = "2021"
+content = "Rank 122/2605 (Top 5%). Organized by Google Brain & Kaggle."
+link = "https://www.kaggle.com/competitions/ventilator-pressure-prediction"
+
+[[items]]
+title = "1st Place at WIDS Bay Area Datathon"
+date = "2021"
+content = "Organized by WIDS - Stanford and Google Cloud team."
+link = "https://www.widsworldwide.org/"
+
+[[items]]
+title = "1st Place at International BanColombia Datathon"
+date = "2020"
+content = "Rank 1/80. Organized by Group BanColombia - Colombia. Awarded $2000."
+
+[[items]]
+title = "2nd Place at Brewing Data Cup"
+date = "2020"
+content = "Rank 2/40. Organized by AB-InBev corporation."
+
+[[items]]
+title = "Dean's List Scholar, National University of Engineering"
+date = "2016-2021"
+content = "Awarded on the basis of grade point average (GPA)."
