@@ -21,6 +21,7 @@ export interface SiteConfig {
         location_url?: string;
         location_details?: string[];
         google_scholar?: string;
+        twitter?: string;
         cv?: string;
         orcid?: string;
         github?: string;
