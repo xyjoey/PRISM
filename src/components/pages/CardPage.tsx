@@ -52,6 +52,18 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
                                 {item.content}
                             </p>
                         )}
+                        {item.tweet && (
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <a
+                                    href={item.tweet}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                >
+                                    Tweet
+                                </a>
+                            </div>
+                        )}
                         {item.tags && (
                             <div className="flex flex-wrap gap-2 mt-4">
                                 {item.tags.map(tag => (

@@ -6,13 +6,15 @@ description = "Honors and awards I have received."
 title = "1st Place Facts Grounding Leaderboard"
 date = "2025"
 content = "Rank 1/34 among submissions from Big AI labs. Organized by GoogleDeepMind & Kaggle."
-link = "https://www.kaggle.com/competitions/facts-grounding/leaderboard"
+link = "https://www.kaggle.com/benchmarks/google/facts-grounding/leaderboard"
+tweet = "https://x.com/w33lliam/status/1944776594767372636"
 
 [[items]]
 title = "2nd Place RewardBench"
 date = "2025"
 content = "Rank 2/70 among submissions from Big AI labs. Organized by AllenAI Institute."
 link = "https://huggingface.co/spaces/allenai/reward-bench"
+tweet = "https://x.com/w33lliam/status/1937165574230204428"
 
 [[items]]
 title = "1st Place BBVA Data Challenge"

@@ -21,6 +21,7 @@ export interface CardItem {
     content?: string;
     tags?: string[];
     link?: string;
+    tweet?: string;
     image?: string;
 }
 
