@@ -1,5 +1,6 @@
-import { Publication, PublicationType, ResearchArea } from '@/types/publication';
+import { Publication, PublicationType, PublicationStatus, ResearchArea } from '@/types/publication';
 import { getConfig } from './config';
+import { getTomlContent } from './content';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const bibtexParse = require('bibtex-parse-js');
@@ -34,16 +35,38 @@ const monthMapping: Record<string, number> = {
   dec: 12, december: 12,
 };
 
+interface Collaborator {
+  name: string;
+  avatar?: string;
+  researchInterest?: string[];
+  bio?: string;
+  homepage?: string;
+}
+
 export function parseBibTeX(bibtexContent: string): Publication[] {
   const config = getConfig();
   const authorName = config.author.name;
   const entries = bibtexParse.toJSON(bibtexContent);
 
+  // Parsing collaborators.toml
+  const collaboratorDict: { [key: string]: Collaborator } =
+    (getTomlContent<{ people: Collaborator[] }>("collaborators.toml")?.people ?? [])
+      .reduce((dict, person) => {
+        dict[person.name] = person;
+        return dict;
+      }, {} as { [key: string]: Collaborator });
+
+  // Add default user (yourself)
+  collaboratorDict[authorName] = {
+    name: authorName,
+    homepage: "/"
+  }
+
   return entries.map((entry: { entryType: string; citationKey: string; entryTags: Record<string, string> }, index: number) => {
     const tags = entry.entryTags;
 
     // Parse authors
-    const authors = parseAuthors(tags.author || '', authorName);
+    const authors = parseAuthors(tags.author || '', collaboratorDict, authorName);
 
     // Parse year and month
     const year = parseInt(tags.year) || new Date().getFullYear();
@@ -70,7 +93,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
       year,
       month: monthMapping[tags.month?.toLowerCase()] ? String(month) : tags.month,
       type,
-      status: 'published',
+      status: tags.status as PublicationStatus || 'published',
       tags: keywords,
       keywords,
       researchArea: detectResearchArea(tags.title, keywords),
@@ -78,11 +101,14 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
       // Optional fields
       journal: cleanBibTeXString(tags.journal),
       conference: cleanBibTeXString(tags.booktitle),
+      shortName: tags.shortName,
       volume: tags.volume,
       issue: tags.number,
       pages: tags.pages,
       doi: tags.doi,
       url: tags.url,
+      pdfUrl: tags.pdfUrl,
+      slides: tags.slides,
       code: tags.code,
       abstract: cleanBibTeXString(tags.abstract),
       description: cleanBibTeXString(tags.description || tags.note),
@@ -118,7 +144,7 @@ export function parseBibTeX(bibtexContent: string): Publication[] {
   });
 }
 
-function parseAuthors(authorsStr: string, highlightName?: string): Array<{ name: string; isHighlighted?: boolean; isCorresponding?: boolean; isCoAuthor?: boolean }> {
+function parseAuthors(authorsStr: string, collaboratorDict: { [key: string]: Collaborator }, highlightName?: string): Array<{ name: string; isHighlighted?: boolean; isCorresponding?: boolean; isCoAuthor?: boolean; homepage?: string; }> {
   if (!authorsStr) return [];
 
   // Split by "and" and clean up
@@ -160,12 +186,14 @@ function parseAuthors(authorsStr: string, highlightName?: string): Array<{ name:
           }
         }
       }
-
+      // FIXME May meet name e.g. Nordström
+      const pure_name = cleanBibTeXString(name);
       return {
-        name: cleanBibTeXString(name),
+        name: pure_name,
         isHighlighted,
         isCorresponding,
         isCoAuthor,
+        homepage: collaboratorDict[pure_name]?.homepage,
       };
     })
     .filter(author => author.name);

@@ -9,32 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.4",
+    "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "bibtex-parse-js": "^0.0.24",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.18.1",
+    "framer-motion": "^12.23.25",
     "lucide-react": "^0.515.0",
     "next": "15.3.3",
     "next-themes": "^0.4.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "raw-loader": "^4.0.2",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-markdown": "^10.1.0",
     "smol-toml": "^1.5.2",
-    "zustand": "^5.0.5"
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3.3.3",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^20.19.25",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
     "eslint-config-next": "15.3.3",
     "lightningcss": "^1",
     "svg2ico": "^1.0.35",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "^1"
