@@ -44,6 +44,7 @@ export default function Profile({ author, social, features, researchInterests }:
     const [showEmail, setShowEmail] = useState(false);
     const [isEmailPinned, setIsEmailPinned] = useState(false);
     const [lastClickedTooltip, setLastClickedTooltip] = useState<'email' | 'address' | null>(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     // Check local storage for user's like status
     useEffect(() => {
@@ -137,8 +138,8 @@ export default function Profile({ author, social, features, researchInterests }:
             </div>
 
             {/* Contact Links */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 relative px-2">
-                {socialLinks.map((link) => {
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6 relative px-2">
+                {socialLinks.map((link, idx) => {
                     const IconComponent = link.icon;
                     if (link.isLocation) {
                         return (
@@ -154,7 +155,7 @@ export default function Profile({ author, social, features, researchInterests }:
                                         setShowAddress(!isAddressPinned);
                                         setLastClickedTooltip('address');
                                     }}
-                                    className={`p-2 sm:p-2 transition-colors duration-200 ${isAddressPinned
+                                    className={`inline-flex items-center justify-center p-2 sm:p-2 transition-colors duration-200 ${isAddressPinned
                                         ? 'text-accent'
                                         : 'text-neutral-600 dark:text-neutral-400 hover:text-accent'
                                         }`}
@@ -231,7 +232,7 @@ export default function Profile({ author, social, features, researchInterests }:
                                         setShowEmail(!isEmailPinned);
                                         setLastClickedTooltip('email');
                                     }}
-                                    className={`p-2 sm:p-2 transition-colors duration-200 ${isEmailPinned
+                                    className={`inline-flex items-center justify-center p-2 sm:p-2 transition-colors duration-200 ${isEmailPinned
                                         ? 'text-accent'
                                         : 'text-neutral-600 dark:text-neutral-400 hover:text-accent'
                                         }`}
@@ -289,16 +290,33 @@ export default function Profile({ author, social, features, researchInterests }:
                         );
                     }
                     return (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 sm:p-2 text-neutral-600 dark:text-neutral-400 hover:text-accent transition-colors duration-200"
-                            aria-label={link.name}
-                        >
-                            <IconComponent className="h-5 w-5" />
-                        </a>
+                        <div key={link.name} className="relative">
+                            <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onMouseEnter={() => setHoveredIndex(idx)}
+                                onMouseLeave={() => setHoveredIndex(null)}
+                                onFocus={() => setHoveredIndex(idx)}
+                                onBlur={() => setHoveredIndex(null)}
+                                className="inline-flex items-center justify-center p-2 sm:p-2 text-neutral-600 dark:text-neutral-400 hover:text-accent transition-colors duration-200"
+                                aria-label={link.name}
+                            >
+                                <IconComponent className="h-5 w-5" />
+                            </a>
+                            <AnimatePresence>
+                                {hoveredIndex === idx && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                                        animate={{ opacity: 1, y: -8, scale: 1 }}
+                                        exit={{ opacity: 0, y: -16, scale: 0.9 }}
+                                        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-neutral-800 text-white px-3 py-2 rounded-md text-xs font-medium shadow-lg whitespace-nowrap z-20"
+                                    >
+                                        {link.name}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     );
                 })}
             </div>
