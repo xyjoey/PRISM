@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
+    "@vercel/analytics": "^1.6.1",
     "bibtex-parse-js": "^0.0.24",
     "clsx": "^2.1.1",
     "framer-motion": "^12.18.1",
