@@ -4,6 +4,7 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { getConfig } from "@/lib/config";
+import { Analytics } from "@vercel/analytics/next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = getConfig();
@@ -109,6 +110,7 @@ export default function RootLayout({
           </main>
           <Footer lastUpdated={config.site.last_updated} />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
